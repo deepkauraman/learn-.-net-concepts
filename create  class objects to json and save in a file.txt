@@ -1,0 +1,30 @@
+using System.Text.Json;
+
+namespace Studentdata
+{
+    public class StuPersonalDetails
+    {
+        public DateTimeOffset Dob { get; set; }
+        public string name { get; set; }
+        public string mobilenum { get; set; }
+    }
+
+    public class Program
+    {
+        public static void Main()
+        {
+            var spd = new StuPersonalDetails
+            {
+                Dob = DateTime.Parse("2000-05-05"),
+                name = "lucky",
+                mobilenum = "7878989"
+            };
+            string fileName = "C:\\Users\\amakaur14\\Desktop\\aman\\stdudentdetails.json";
+            string jsonString = JsonSerializer.Serialize(spd);
+            File.WriteAllText(fileName, jsonString);
+
+
+            //  Console.WriteLine(jsonString);
+        }
+    }
+}
